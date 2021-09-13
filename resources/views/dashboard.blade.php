@@ -11,7 +11,21 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     You're logged in!
                 </div>
+                <div style=" margin: auto; width: 50%; border: 3px solid black; padding: 10px;">
+                    <h1>Listings</h1>
+                    <table style="border: 1px solid blue; ">
+                        <tr>
+                            <th>Nmae</th>
+                        </tr>
+                        @foreach($listings as $listing)
+                        <tr>
+                            <td>{{$listing->name}}</td>
+                        </tr>
+                        @endforeach
+                    </table>
+                </div>
             </div>
         </div>
     </div>
+    
 </x-app-layout>

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Listings;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth;
 
 class ListingsController extends Controller
 {
@@ -23,7 +27,7 @@ class ListingsController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -34,7 +38,19 @@ class ListingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate(
+        [
+            'name' => 'required',
+            'address'=> 'required',
+            'website' => 'required',
+            'email' => 'required',
+            'bio' => 'required',
+            'phone' => 'required',
+        ]);
+        $validate['user_id'] = $request->user()->id;
+
+        Listings::create($validate);
+        return redirect()->route('dashboard')->with('success','Listing Added successfully');
     }
 
     /**

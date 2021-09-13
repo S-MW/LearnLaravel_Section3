@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Listings extends Model
 {
     use HasFactory;
+    protected $fillable = ['name','website','email','bio','phone','address','user_id'];
 
 
 

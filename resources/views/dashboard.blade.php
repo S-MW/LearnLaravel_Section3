@@ -35,7 +35,8 @@
                                     <td class="px-4 py-3 text-sm border">{{$listing->name}}</td>
                                     <td class="px-4 py-3 text-sm border">{{$listing->created_at}}</td>
                                     <td class="px-4 py-3 text-sm border">
-                                        <form action="#">
+                                        <form action="/Listings/{{$listing->id}}/edit" method="GET">
+                                        @csrf
                                         <a href="Listings\create"> <button class="bg-yellow-600 hover:bg-yellow-400 text-white font-bold py-2 px-4 rounded-full right-0">Edit</button> </a>
                                         </form>
                                         <form action="/Listings/{{$listing->id}}" method="POST">

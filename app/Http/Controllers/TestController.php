@@ -13,7 +13,7 @@ class TestController extends Controller
 {
     public function dashboard()
     {
-        $listings = user::find(Auth::id())->Listings;
+        $listings = user::find(Auth::id())->Listings->sortDesc();
         return view('dashboard' , compact('listings'));
     }
 

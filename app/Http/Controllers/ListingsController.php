@@ -60,8 +60,9 @@ class ListingsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    { 
+        $listings = Listings::with('user')->where('id',$id)->first();
+        return view('show',compact('listings'));
     }
 
     /**

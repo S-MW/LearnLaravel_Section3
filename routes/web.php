@@ -14,9 +14,9 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
@@ -28,5 +28,7 @@ Route::get('/dashboard',[Controllers\TestController::class , 'dashboard'])->midd
 Route::resource('Listings', Controllers\ListingsController::class);
 
 Route::get('test',[Controllers\TestController::class , 'index']);
+
+Route::get('/',[Controllers\TestController::class, 'mainpage']);
 
 require __DIR__.'/auth.php';

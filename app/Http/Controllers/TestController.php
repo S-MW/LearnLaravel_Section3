@@ -23,5 +23,11 @@ class TestController extends Controller
         return user::find(Auth::id())->Listings;
     }
 
+    public function mainpage()
+    {
+        $listings = Listings::with('user')->get();
+        return view('mainpage', compact('listings'));
+    }
+
 
 }
